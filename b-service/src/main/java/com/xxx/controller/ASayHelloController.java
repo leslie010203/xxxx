@@ -39,7 +39,7 @@ public class ASayHelloController {
      */
     @RequestMapping("/name")
     public String name(String name) {
-        return "My name is " + name + ". aaa";
+        return "My name is " + name + ". bbb";
     }
 
     /*
@@ -50,7 +50,7 @@ public class ASayHelloController {
      */
     @RequestMapping("/age")
     public String age(String age) {
-        return "I am " + age + " years old this year. aaa";
+        return "I am " + age + " years old this year. bbb";
     }
 
     /*

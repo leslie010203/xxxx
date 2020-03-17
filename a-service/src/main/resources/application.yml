@@ -5,7 +5,7 @@ server:
 # 应用名称
 spring:
   application:
-    name: a
+    name: aaaa
 
 eureka:
   instance:
