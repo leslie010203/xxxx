@@ -11,6 +11,8 @@
     <modules>
         <module>gateway</module>
         <module>registry-service</module>
+        <module>a-service</module>
+        <module>b-service</module>
     </modules>
 
 
