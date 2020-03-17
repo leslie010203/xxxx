@@ -3,6 +3,7 @@ package com.xxx.utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Base64Utils;
 
 import javax.crypto.Cipher;
@@ -26,6 +27,7 @@ import java.util.Properties;
  * @Date 2020/3/17 15:18
  **/
 @Slf4j
+@Component
 public class RSAUtil {
     /**
      * 算法名称

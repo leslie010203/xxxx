@@ -12,7 +12,7 @@
     <artifactId>gateway</artifactId>
 
     <!-- 打包方式 -->
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <!-- 在 properties下声明相应的版本信息，然后在 dependency 下引用的时候用 ${} 就可以引入该版本 jar 包了 -->
     <properties>
@@ -27,21 +27,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+            <!-- 移除tomcat容器 -->
 
-        <!-- 提供者消费者 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-
         <!-- gateway -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-webflux</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
-
 
         <!-- redis -->
         <dependency>
@@ -84,10 +87,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+
 
     </dependencies>
 

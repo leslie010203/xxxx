@@ -4,13 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <groupId>com.xxx</groupId>
     <artifactId>xxxx</artifactId>
     <packaging>pom</packaging>
@@ -22,13 +15,14 @@
         <module>b-service</module>
     </modules>
 
-
     <!-- 在 properties 下声明相应的版本信息，然后在 dependency 下引用的时候用 ${} 就可以引入该版本 jar 包了 -->
     <properties>
         <!-- 编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- jdk -->
         <java.version>1.8</java.version>
+        <!-- SpringBoot -->
+        <spring-boot.version>2.0.2.RELEASE</spring-boot.version>
         <!-- SpringCloud -->
         <spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>
         <mybatis.version>1.3.2</mybatis.version>
@@ -44,6 +38,13 @@
     <!-- 优先级：如果 dependencies 里的 dependency 已经声明了版本信息，就不会生效此处的版本信息了 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- SpringCloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -75,6 +76,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+    </dependencies>
 
     <!-- 插件依赖 -->
     <build>
