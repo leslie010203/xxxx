@@ -409,6 +409,27 @@ spring:
                 ### 用户允许在一秒钟内完成的最大请求数
                 redis-rate-limiter.burstCapacity: 3
 
+#熔断相关配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 200000
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true # 开启请求压缩
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型
+      min-request-size: 2048 # 设置触发压缩的大小下限
+    response:
+      enabled: true
+
+
 eureka:
   instance:
     # 使用 ip 代替实例名
