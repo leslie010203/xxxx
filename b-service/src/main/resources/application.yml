@@ -1,7 +1,8 @@
 # 端口
 server:
   port: 9002
-
+  server:
+    context-path: /
 # 应用名称
 spring:
   application:
@@ -14,8 +15,8 @@ eureka:
     # 实例的主机名
     hostname: ${spring.cloud.client.ip-address}
     # 实例的 ID 规则
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    instance-id: 10.0.50.11
   client:
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://10.0.54.208:11000/eureka/

@@ -1,7 +1,11 @@
 package com.xxx.controller;
 
+import com.xxx.controller.feign.A;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /*
@@ -10,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ASayHelloController {
+
+    @Autowired
+    private A a;
+
 
     /*
      * @ClassName ASayHelloController
@@ -62,6 +70,12 @@ public class ASayHelloController {
     @RequestMapping("/routeAll")
     public String routeAll(String pass) {
         return "Can I pass? " + pass + "! port：" + port;
+    }
+
+
+    @RequestMapping(value = "/apiOrder/xxxx",method = RequestMethod.GET)
+    public String checkApiApplyTerm(@RequestParam("url") String url, @RequestParam("clientId") String clientId) {
+        return a.checkApiApplyTerm(url, clientId);
     }
 
 }
