@@ -13,6 +13,7 @@
         <module>registry-service</module>
         <module>a-service</module>
         <module>b-service</module>
+        <module>java8-demo</module>
     </modules>
 
     <!-- 在 properties 下声明相应的版本信息，然后在 dependency 下引用的时候用 ${} 就可以引入该版本 jar 包了 -->
